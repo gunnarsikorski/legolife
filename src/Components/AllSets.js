@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { CircularProgress } from '@material-ui/core';
+// import Review from './Review'
 // import localStorage from 'local-storage';
 // import clsx from 'clsx';
 // import Card from '@material-ui/core/Card';
@@ -41,7 +44,7 @@ const AllSets = () => {
         .catch((error) => console.log(error))
 
 	if (!legos) {
-		return <p>Loading...</p>;
+		return <CircularProgress />;
     }
     
     const handleClick = (index) => {
@@ -58,11 +61,10 @@ const AllSets = () => {
 					<h2>{lego.name}</h2>
 					<p>
 						Set Number: {lego.set_number} | Pieces: {lego.piece_count} | Source:{' '}
-						{lego.source} | Release Year: {lego.release_year} | Includes:{' '}
+						{lego.source} | Release Year: {lego.release_year} | Minifigures:{' '}
 						{lego.minifigures}
 					</p>
 					<img src={lego.image_url} alt='lego' />
-					<button onClick={() => handleClick(index)}>Add to Wishlist</button>
 					<p>
 						{lego.reviews.map((review) => (
 							<div>
@@ -72,6 +74,10 @@ const AllSets = () => {
 								</p>
 							</div>
 						))}
+						<Link to={`/new_review/${lego.id}`} key={lego.id}>
+							<button>Add Review</button>
+						</Link>
+						<button onClick={() => handleClick(index)}>Add to Wishlist</button>
 					</p>
 				</div>
 			))}

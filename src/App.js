@@ -5,6 +5,7 @@ import AllSets from './Components/AllSets'
 import Home from './Components/Home'
 import './App.css';
 import Wishlist from './Components/Wishlist';
+import Review from './Components/Review';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' exact component={Home}/>
         <Route path='/sets' component={AllSets}/>
         <Route path='/wishlist' component={Wishlist}/>
+        <Route path='/new_review/:id' component={Review}/>
 
       </main>
       

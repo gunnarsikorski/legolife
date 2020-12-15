@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { CircularProgress } from '@material-ui/core';
 
 const Wishlist = () => {
      const [legos, setLegos] = useState('');
@@ -15,7 +16,7 @@ const Wishlist = () => {
 			}, []);
 
 			if (!legos) {
-				return <p>Loading...</p>;
+				return <CircularProgress/>;
 			}
 
     const handleClick = (index) => {
