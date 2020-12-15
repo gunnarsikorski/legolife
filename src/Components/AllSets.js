@@ -18,6 +18,7 @@ import React, { useState, useEffect } from 'react';
 
 const AllSets = () => {
     const [legos, setLegos] = useState('');
+    const [reviews, setReviews] =useState('')
 
 	useEffect(() => {
 		const url = 'https://pure-sierra-61007.herokuapp.com/legos';
@@ -28,7 +29,16 @@ const AllSets = () => {
                 setLegos(legos)
             })
             .catch((error) => console.log(error))
-	}, []);
+    }, []);
+    
+    const reviewUrl = 'https://pure-sierra-61007.herokuapp.com/reviews';
+    fetch(reviewUrl)
+        .then((res) => res.json())
+        .then((res) => {
+            let reviews = res
+            setReviews(reviews)
+        })
+        .catch((error) => console.log(error))
 
 	if (!legos) {
 		return <p>Loading...</p>;
@@ -52,7 +62,17 @@ const AllSets = () => {
 						{lego.minifigures}
 					</p>
 					<img src={lego.image_url} alt='lego' />
-					<button onClick={() => (handleClick(index))}>Add to Wishlist</button>
+					<button onClick={() => handleClick(index)}>Add to Wishlist</button>
+					<p>
+						{lego.reviews.map((review) => (
+							<div>
+								<h4>Reviews:</h4>
+								<p>
+									{review.title} - {review.body}
+								</p>
+							</div>
+						))}
+					</p>
 				</div>
 			))}
 		</>
@@ -74,4 +94,12 @@ export default AllSets;
                 //         title='lego'
                 //     />
 					
-				// </Card>
+                // </Card>
+                
+                // {
+				// 					reviews.map((review) => (
+				// 						<p>
+				// 							Reviews: {review.title} - {review.body}
+				// 						</p>
+				// 					));
+				// 				}
