@@ -8,6 +8,7 @@ const Header = () => {
 					<h2>Lego Collector</h2>
 				</Link>
 				<Link to='/sets'>Sets</Link>
+                <Link to='/wishlist'>Wishlist</Link>
 			</nav>
 		);
 };
