@@ -18,8 +18,6 @@ import React, { useState, useEffect } from 'react';
 
 const AllSets = () => {
     const [legos, setLegos] = useState('');
-    const [tempLegos, setTempLegos] = useState('')
-    // localStorage.setItem('legos', [])
 
 	useEffect(() => {
 		const url = 'https://pure-sierra-61007.herokuapp.com/legos';
@@ -41,7 +39,6 @@ const AllSets = () => {
         if(existingLegos == null) existingLegos =[]
         existingLegos.push(legos[index])
         localStorage.setItem('legos', JSON.stringify(existingLegos))
-    
     }
 
 	return (
