@@ -19,7 +19,7 @@ import Card from '@material-ui/core/Card';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-const AllSets = () => {
+const AllSets = ({ setLegoId }) => {
     const [legos, setLegos] = useState('');
     const [reviews, setReviews] =useState('')
 
@@ -85,7 +85,7 @@ const AllSets = () => {
 										</div>
 									))}
 									<Link to={`/new_review/${lego.id}`} key={lego.id}>
-										<button>Add Review</button>
+										<button onClick={(event) => setLegoId(lego.id)}>Add Review</button>
 									</Link>
 									<button onClick={() => handleClick(index)}>
 										Add to Wishlist

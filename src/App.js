@@ -1,5 +1,5 @@
 import { Route } from 'react-router-dom';
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Components/Header'
 import AllSets from './Components/AllSets'
 import Home from './Components/Home'
@@ -10,15 +10,17 @@ import Owned from './Components/Owned';
 
 
 function App() {
+  const [legoId, setLegoId] = useState(null)
+
   return (
     <div className="App">
       <Header />
 
       <main>
         <Route path='/' exact component={Home}/>
-        <Route path='/sets' component={AllSets}/>
+        <Route path='/sets' render={() => <AllSets setLegoId={setLegoId}/>}/>
         <Route path='/wishlist' component={Wishlist}/>
-        <Route path='/new_review/:id' component={Review}/>
+        <Route path='/new_review/:id' render={(routerProps) => <Review match={routerProps.match}/>}/>
         <Route path='/owned' component={Owned}/>
 
       </main>
