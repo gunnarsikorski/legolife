@@ -14,6 +14,7 @@ images
 
 - React
 - Material UI
+- Material UI documentation was very useful
 - My own API, built using Django REST Framework
 
 ---

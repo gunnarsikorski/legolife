@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CircularProgress } from '@material-ui/core';
-// import Review from './Review'
+import Grid from '@material-ui/core/Grid'
 // import localStorage from 'local-storage';
 // import clsx from 'clsx';
-// import Card from '@material-ui/core/Card';
+import Card from '@material-ui/core/Card';
 // import CardHeader from '@material-ui/core/CardHeader'
 // import CardMedia from '@material-ui/core/CardMedia';
 // import CardContent from '@material-ui/core/CardContent';
@@ -56,31 +56,39 @@ const AllSets = () => {
 
 	return (
 		<>
+				<Grid container spacing={3}>
 			{legos.map((lego, index) => (
-				<div key={index}>
-					<h2>{lego.name}</h2>
-					<p>
-						Set Number: {lego.set_number} | Pieces: {lego.piece_count} | Source:{' '}
-						{lego.source} | Release Year: {lego.release_year} | Minifigures:{' '}
-						{lego.minifigures}
-					</p>
-					<img src={lego.image_url} alt='lego' />
-					<p>
-						{lego.reviews.map((review) => (
-							<div>
-								<h4>Reviews:</h4>
+					<Grid item xs={4}>
+						<Card>
+							<div key={index}>
+								<h2>{lego.name}</h2>
 								<p>
-									{review.title} - {review.body}
+									Set Number: {lego.set_number} | Pieces: {lego.piece_count} |
+									Source: {lego.source} | Release Year: {lego.release_year} |
+									Minifigures: {lego.minifigures}
+								</p>
+								<img src={lego.image_url} alt='lego' />
+								<p>
+									{lego.reviews.map((review) => (
+										<div>
+											<h4>Reviews:</h4>
+											<p>
+												{review.title} - {review.body}
+											</p>
+										</div>
+									))}
+									<Link to={`/new_review/${lego.id}`} key={lego.id}>
+										<button>Add Review</button>
+									</Link>
+									<button onClick={() => handleClick(index)}>
+										Add to Wishlist
+									</button>
 								</p>
 							</div>
-						))}
-						<Link to={`/new_review/${lego.id}`} key={lego.id}>
-							<button>Add Review</button>
-						</Link>
-						<button onClick={() => handleClick(index)}>Add to Wishlist</button>
-					</p>
-				</div>
+						</Card>
+					</Grid>
 			))}
+			</Grid>
 		</>
 	);
 };
