@@ -44,13 +44,14 @@ const Review = () => {
 				<Grid container spacing={6} justify='center'>
 					<form noValidate autoComplete='off' onSubmit={handleCreate}>
 					    <Grid item xs={9}>
-							<TextField id='title' label='Review Title' />
+							<TextField style={{marginTop: '100px', marginBottom: '30px'}}id='title' label='Review Title' />
 						
 					    </Grid>
 				
 					    <Grid item xs={12}>
 						
 							<TextField
+                                style={{marginBottom: '30px'}}
 								id='body'
 								label='Write review here'
 								variant='outlined'
@@ -60,6 +61,7 @@ const Review = () => {
 					    </Grid>
 				
                         <Button
+                            onClick={handleCreate}
                             type='submit'
                             variant='contained'
                             color='primary'
