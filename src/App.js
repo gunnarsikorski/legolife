@@ -6,6 +6,7 @@ import Home from './Components/Home'
 import './App.css';
 import Wishlist from './Components/Wishlist';
 import Review from './Components/Review';
+import Owned from './Components/Owned';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/sets' component={AllSets}/>
         <Route path='/wishlist' component={Wishlist}/>
         <Route path='/new_review/:id' component={Review}/>
+        <Route path='/owned' component={Owned}/>
 
       </main>
       

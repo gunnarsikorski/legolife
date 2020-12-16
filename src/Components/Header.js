@@ -40,6 +40,9 @@ const Header = () => {
 					<MenuItem onClick={handleClose}>
 						<Link to='/wishlist'>Wishlist</Link>
 					</MenuItem>
+					<MenuItem onClick={handleClose}>
+						<Link to='/owned'>Owned</Link>
+					</MenuItem>
 				</Menu>
 			</div>
 		);

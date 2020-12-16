@@ -49,10 +49,17 @@ const AllSets = () => {
     
     const handleClick = (index) => {
         let existingLegos = JSON.parse(localStorage.getItem('legos'))
-        if(existingLegos == null) existingLegos =[]
+        if(existingLegos == null) existingLegos = []
         existingLegos.push(legos[index])
         localStorage.setItem('legos', JSON.stringify(existingLegos))
-    }
+	}
+	
+	const handleClick2 = (index) => {
+		let existingOwnedLegos = JSON.parse(localStorage.getItem('ownedLegos'))
+		if(existingOwnedLegos == null) existingOwnedLegos = []
+		existingOwnedLegos.push(legos[index])
+		localStorage.setItem('ownedLegos', JSON.stringify(existingOwnedLegos))
+	}
 
 	return (
 		<>
@@ -82,6 +89,9 @@ const AllSets = () => {
 									</Link>
 									<button onClick={() => handleClick(index)}>
 										Add to Wishlist
+									</button>
+									<button onClick={() => handleClick2(index)}>
+										Add to Owned
 									</button>
 								</p>
 							</div>

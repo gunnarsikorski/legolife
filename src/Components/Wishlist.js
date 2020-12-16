@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { CircularProgress } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+
 
 const Wishlist = () => {
      const [legos, setLegos] = useState('');
@@ -27,14 +30,22 @@ const Wishlist = () => {
         };
         
     return (
-			<div>
-				{JSON.parse(localStorage.getItem('legos')).map((lego, index) => (
-					<div key={index}>
-						<h2>{lego.name}</h2>
-						<button onClick={() => (handleClick(index))}>Remove</button>
-					</div>
-				))}
-			</div>
+			<>
+                <h1>Wishlist</h1>
+				<Grid container spacing={3}>
+					{JSON.parse(localStorage.getItem('legos')).map((lego, index) => (
+						<Grid item xs={4}>
+							<Card>
+								<div key={index}>
+									<h2>{lego.name}</h2>
+                                    <img src={lego.image_url} alt="lego"/>
+									<button onClick={() => handleClick(index)}>Remove</button>
+								</div>
+							</Card>
+						</Grid>
+					))}
+				</Grid>
+			</>
 		);
 };
 
