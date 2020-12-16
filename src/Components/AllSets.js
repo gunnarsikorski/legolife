@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid'
 // import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 // import CardHeader from '@material-ui/core/CardHeader'
-// import CardMedia from '@material-ui/core/CardMedia';
+import CardMedia from '@material-ui/core/CardMedia';
 // import CardContent from '@material-ui/core/CardContent';
 // import CardActions from '@material-ui/core/CardActions';
 // import Collapse from '@material-ui/core/Collapse';
@@ -63,8 +63,8 @@ const AllSets = ({ setLegoId }) => {
 
 	return (
 		<>
-				<Grid container spacing={3}>
-			{legos.map((lego, index) => (
+			<Grid container spacing={3} style={{backgroundColor: 'black'}}>
+				{legos.map((lego, index) => (
 					<Grid item xs={4}>
 						<Card>
 							<div key={index}>
@@ -74,18 +74,15 @@ const AllSets = ({ setLegoId }) => {
 									Source: {lego.source} | Release Year: {lego.release_year} |
 									Minifigures: {lego.minifigures}
 								</p>
-								<img src={lego.image_url} alt='lego' />
+								<CardMedia style={{height: 0, paddingTop: '56%'}} image={lego.image_url}
+									title='legos'
+									/>
+								
 								<p>
-									{lego.reviews.map((review) => (
-										<div>
-											<h4>Reviews:</h4>
-											<p>
-												{review.title} - {review.body}
-											</p>
-										</div>
-									))}
 									<Link to={`/new_review/${lego.id}`} key={lego.id}>
-										<button onClick={(event) => setLegoId(lego.id)}>Add Review</button>
+										<button onClick={(event) => setLegoId(lego.id)}>
+											Add Review
+										</button>
 									</Link>
 									<button onClick={() => handleClick(index)}>
 										Add to Wishlist
@@ -93,11 +90,19 @@ const AllSets = ({ setLegoId }) => {
 									<button onClick={() => handleClick2(index)}>
 										Add to Owned
 									</button>
+									<h4>Reviews:</h4>
+									{lego.reviews.map((review) => (
+										<div>
+											<p style={{ paddingLeft: '10px', paddingRight: '10px'}}>
+												{review.title} - {review.body}
+											</p>
+										</div>
+									))}
 								</p>
 							</div>
 						</Card>
 					</Grid>
-			))}
+				))}
 			</Grid>
 		</>
 	);

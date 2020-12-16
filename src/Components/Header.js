@@ -18,6 +18,8 @@ const Header = () => {
     return (
 			<div>
 				<Button
+					style={{ marginBottom: '20px', marginTop: '20px' }}
+					size='large'
 					aria-controls='simple-menu'
 					aria-haspopup='true'
 					onClick={handleClick}>
@@ -30,18 +32,24 @@ const Header = () => {
 					open={Boolean(anchor)}
 					onClose={handleClose}>
 					<MenuItem onClick={handleClose}>
-						<Link to='/'>
+						<Link to='/' style={{ textDecoration: 'none' }}>
 							<h2>Lego Collector</h2>
 						</Link>
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
-						<Link to='/sets'>Sets</Link>
+						<Link to='/sets' style={{ textDecoration: 'none' }}>
+							Sets
+						</Link>
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
-						<Link to='/wishlist'>Wishlist</Link>
+						<Link to='/wishlist' style={{ textDecoration: 'none' }}>
+							Wishlist
+						</Link>
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
-						<Link to='/owned'>Owned</Link>
+						<Link to='/owned' style={{ textDecoration: 'none' }}>
+							Owned
+						</Link>
 					</MenuItem>
 				</Menu>
 			</div>
