@@ -32,23 +32,23 @@ const Header = () => {
 					open={Boolean(anchor)}
 					onClose={handleClose}>
 					<MenuItem onClick={handleClose}>
-						<Link to='/' style={{ textDecoration: 'none' }}>
-							<h2>Lego Collector</h2>
+						<Link to='/search' style={{ textDecoration: 'none' }}>
+							<h3>Search</h3>
 						</Link>
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
 						<Link to='/sets' style={{ textDecoration: 'none' }}>
-							Sets
+							<h3>Sets</h3>
 						</Link>
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
 						<Link to='/wishlist' style={{ textDecoration: 'none' }}>
-							Wishlist
+							<h3>Wishlist</h3>
 						</Link>
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
 						<Link to='/owned' style={{ textDecoration: 'none' }}>
-							Owned
+							<h3>Owned</h3>
 						</Link>
 					</MenuItem>
 				</Menu>
