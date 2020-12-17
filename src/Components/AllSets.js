@@ -72,18 +72,15 @@ const AllSets = ({ setLegoId }) => {
 
 	return (
 		<>
-			{/* <h1>All Sets</h1> */}
 			<Grid container spacing={4} style={{ backgroundColor: 'black' }}>
 				{legos.map((lego, index) => (
 					<Grid item xs={4}>
 						<Card style={{ margin: '10px', border: 'solid #ffe81f' }}>
 							<div key={index}>
 								<CardHeader
-									
 									title={lego.name}
 									subheader={lego.set_number}
 								/>
-
 								<CardContent>
 									<Grid container style={{ marginTop: '-10px' }}>
 										<Grid
