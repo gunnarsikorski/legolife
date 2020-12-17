@@ -22,6 +22,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 // import ShareIcon from '@material-ui/icons/Share';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
 
 const AllSets = ({ setLegoId }) => {
     const [legos, setLegos] = useState('');
@@ -68,10 +71,10 @@ const AllSets = ({ setLegoId }) => {
 	return (
 		<>
 			<h2>All Sets</h2>
-			<Grid container spacing={3} style={{ backgroundColor: 'black' }}>
+			<Grid container spacing={4} style={{ backgroundColor: 'black' }}>
 				{legos.map((lego, index) => (
 					<Grid item xs={4}>
-						<Card>
+						<Card style={{ margin: '10px'}}>
 							<div key={index}>
 								<h2>{lego.name}</h2>
 								<p>

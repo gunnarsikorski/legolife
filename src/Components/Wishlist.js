@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 
 
+
 const Wishlist = () => {
      const [legos, setLegos] = useState('');
 
@@ -49,6 +50,7 @@ const Wishlist = () => {
 										style={{ height: 0, paddingTop: '56%' }}
 										image={lego.image_url}
 									/>
+                                   
 									<button
 										style={{ marginTop: '15px', marginBottom: '15px' }}
 										onClick={() => handleClick(index)}>
