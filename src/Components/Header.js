@@ -38,7 +38,7 @@ const Header = () => {
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
 						<Link to='/sets' style={{ textDecoration: 'none' }}>
-							<h3>Sets</h3>
+							<h3>All Sets</h3>
 						</Link>
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
