@@ -63,8 +63,8 @@ const AllSets = ({ setLegoId }) => {
 
 	return (
 		<>
-		<h2>All Sets</h2>
-			<Grid container spacing={3} style={{backgroundColor: 'black'}}>
+			<h2>All Sets</h2>
+			<Grid container spacing={3} style={{ backgroundColor: 'black' }}>
 				{legos.map((lego, index) => (
 					<Grid item xs={4}>
 						<Card>
@@ -75,10 +75,12 @@ const AllSets = ({ setLegoId }) => {
 									Source: {lego.source} | Release Year: {lego.release_year} |
 									Minifigures: {lego.minifigures}
 								</p>
-								<CardMedia style={{height: 0, paddingTop: '56%'}} image={lego.image_url}
+								<CardMedia
+									style={{ height: 0, paddingTop: '56%' }}
+									image={lego.image_url}
 									title='legos'
-									/>
-								
+								/>
+
 								<p>
 									<Link to={`/new_review/${lego.id}`} key={lego.id}>
 										<button onClick={(event) => setLegoId(lego.id)}>
@@ -94,7 +96,7 @@ const AllSets = ({ setLegoId }) => {
 									<h4>Reviews:</h4>
 									{lego.reviews.map((review) => (
 										<div>
-											<p style={{ paddingLeft: '10px', paddingRight: '10px'}}>
+											<p style={{ paddingLeft: '10px', paddingRight: '10px' }}>
 												{review.title} - {review.body}
 											</p>
 										</div>
