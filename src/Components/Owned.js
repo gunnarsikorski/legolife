@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { CardMedia, CircularProgress } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Owned = ({ setLegoId }) => {
 	const [legos, setLegos] = useState('');
@@ -48,16 +51,26 @@ const Owned = ({ setLegoId }) => {
 									image={lego.image_url}
 									title='legos'
 								/>
-								<Link to={`/new_review/${lego.id}`} key={lego.id}>
-									<button onClick={(event) => setLegoId(lego.id)}>
-										Add Review
-									</button>
+								<Link
+									style={{ textDecoration: 'none' }}
+									to={`/new_review/${lego.id}`}
+									key={lego.id}>
+									<Button
+										onClick={(event) => setLegoId(lego.id)}
+										variant='contained'
+										color='primary'
+										startIcon={<AddIcon />}>
+										Review
+									</Button>
 								</Link>
-								<button
-									style={{ marginTop: '15px', marginBottom: '15px' }}
-									onClick={() => handleClick(index)}>
+								<Button
+									style={{ marginTop: '15px', marginBottom: '15px', marginLeft: '10px' }}
+									onClick={() => handleClick(index)}
+                                    variant='contained'
+                                    color='secondary'
+                                    startIcon={<DeleteIcon />}>
 									Remove
-								</button>
+								</Button>
 								<h4>Reviews:</h4>
 								{lego.reviews.map((review) => (
 									<div>
