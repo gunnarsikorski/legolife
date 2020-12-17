@@ -6,6 +6,9 @@ import Card from '@material-ui/core/Card'
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Typography from '@material-ui/core/Typography';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
 
 const Owned = ({ setLegoId }) => {
 	const [legos, setLegos] = useState('');
@@ -38,14 +41,34 @@ const Owned = ({ setLegoId }) => {
 			<Grid container spacing={3} style={{ backgroundColor: 'black' }}>
 				{JSON.parse(localStorage.getItem('ownedLegos')).map((lego, index) => (
 					<Grid item xs={4}>
-						<Card>
+						<Card style={{ margin: '10px', border: 'solid #ffe81f' }}>
 							<div key={index}>
-								<h2>{lego.name}</h2>
-								<p>
-									Set Number: {lego.set_number} | Pieces: {lego.piece_count} |
-									Source: {lego.source} | Release Year: {lego.release_year} |
-									Minifigures: {lego.minifigures}
-								</p>
+								<CardHeader title={lego.name} subheader={lego.set_number} />
+								<CardContent>
+									<Grid container style={{ marginTop: '-10px' }}>
+										<Grid
+											item
+											xs={12}
+											style={{
+												padding: '10px',
+												borderBottom: 'solid thin',
+												borderTop: 'solid thin',
+												marginBottom: '10px',
+												marginTop: '-10px',
+											}}>
+											<Typography>Minifigures: {lego.minifigures}</Typography>
+										</Grid>
+										<Grid item xs={4}>
+											<Typography>Pieces: {lego.piece_count}</Typography>
+										</Grid>
+										<Grid item xs={4}>
+											<Typography>Source: {lego.source}</Typography>
+										</Grid>
+										<Grid item xs={4}>
+											<Typography>Release Year: {lego.release_year}</Typography>
+										</Grid>
+									</Grid>
+								</CardContent>
 								<CardMedia
 									style={{ height: 0, paddingTop: '56%' }}
 									image={lego.image_url}
@@ -64,11 +87,15 @@ const Owned = ({ setLegoId }) => {
 									</Button>
 								</Link>
 								<Button
-									style={{ marginTop: '15px', marginBottom: '15px', marginLeft: '10px' }}
+									style={{
+										marginTop: '15px',
+										marginBottom: '15px',
+										marginLeft: '10px',
+									}}
 									onClick={() => handleClick(index)}
-                                    variant='contained'
-                                    color='secondary'
-                                    startIcon={<DeleteIcon />}>
+									variant='contained'
+									color='secondary'
+									startIcon={<DeleteIcon />}>
 									Remove
 								</Button>
 								<h4>Reviews:</h4>
