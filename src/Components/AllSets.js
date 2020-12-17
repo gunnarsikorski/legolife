@@ -142,7 +142,7 @@ const AllSets = ({ setLegoId }) => {
 										<AccordionDetails>
 											{lego.reviews.map((review) => (
 												<div>
-													<p>
+													<p style={{ margin: '5px', padding: '5px', border: 'solid thin', }}>
 														{review.title} - {review.body}
 													</p>
 												</div>

@@ -9,6 +9,10 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Typography from '@material-ui/core/Typography';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const Owned = ({ setLegoId }) => {
 	const [legos, setLegos] = useState('');
@@ -74,38 +78,52 @@ const Owned = ({ setLegoId }) => {
 									image={lego.image_url}
 									title='legos'
 								/>
-								<Link
-									style={{ textDecoration: 'none' }}
-									to={`/new_review/${lego.id}`}
-									key={lego.id}>
+								<p>
+									<Link
+										style={{ textDecoration: 'none' }}
+										to={`/new_review/${lego.id}`}
+										key={lego.id}>
+										<Button
+											onClick={(event) => setLegoId(lego.id)}
+											variant='contained'
+											color='primary'
+											startIcon={<AddIcon />}>
+											Review
+										</Button>
+									</Link>
 									<Button
-										onClick={(event) => setLegoId(lego.id)}
+										style={{
+											marginTop: '15px',
+											marginBottom: '15px',
+											marginLeft: '10px',
+										}}
+										onClick={() => handleClick(index)}
 										variant='contained'
-										color='primary'
-										startIcon={<AddIcon />}>
-										Review
+										color='secondary'
+										startIcon={<DeleteIcon />}>
+										Remove
 									</Button>
-								</Link>
-								<Button
-									style={{
-										marginTop: '15px',
-										marginBottom: '15px',
-										marginLeft: '10px',
-									}}
-									onClick={() => handleClick(index)}
-									variant='contained'
-									color='secondary'
-									startIcon={<DeleteIcon />}>
-									Remove
-								</Button>
-								<h4>Reviews:</h4>
-								{lego.reviews.map((review) => (
-									<div>
-										<p style={{ paddingLeft: '10px', paddingRight: '10px' }}>
-											{review.title} - {review.body}
-										</p>
-									</div>
-								))}
+									<Accordion
+										style={{ marginTop: '15px', marginBottom: '-15px' }}>
+										<AccordionSummary expandIcon={<ExpandMoreIcon />}>
+											Reviews
+										</AccordionSummary>
+										<AccordionDetails>
+											{lego.reviews.map((review) => (
+												<div>
+													<p
+														style={{
+															margin: '5px',
+															padding: '5px',
+															border: 'solid thin',
+														}}>
+														{review.title} - {review.body}
+													</p>
+												</div>
+											))}
+										</AccordionDetails>
+									</Accordion>
+								</p>
 							</div>
 						</Card>
 					</Grid>
