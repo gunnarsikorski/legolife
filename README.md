@@ -20,7 +20,7 @@ Collecting Legos is a hobby of mine - and I know many others do the same. I buy,
 - React
 - Material UI
 - Material UI documentation was very useful
-- My own API, built using Django REST Framework
+- [My own API](https://github.com/gunnarsikorski/legos), built using Django REST Framework
 
 ---
 
