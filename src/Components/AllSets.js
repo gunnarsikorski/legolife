@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CircularProgress } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import LoyaltyIcon from '@material-ui/icons/Loyalty'
+import AddIcon from '@material-ui/icons/Add';
 // import localStorage from 'local-storage';
 // import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -82,17 +86,34 @@ const AllSets = ({ setLegoId }) => {
 								/>
 
 								<p>
-									<Link to={`/new_review/${lego.id}`} key={lego.id}>
-										<button onClick={(event) => setLegoId(lego.id)}>
-											Add Review
-										</button>
+									<Link
+										style={{ textDecoration: 'none' }}
+										to={`/new_review/${lego.id}`}
+										key={lego.id}>
+										<Button
+											onClick={(event) => setLegoId(lego.id)}
+											variant='contained'
+											color='primary'
+											startIcon={<AddIcon />}
+											>
+											Review
+										</Button>
 									</Link>
-									<button onClick={() => handleClick(index)}>
-										Add to Wishlist
-									</button>
-									<button onClick={() => handleClick2(index)}>
-										Add to Owned
-									</button>
+									<Button
+										style={{ marginLeft: '10px', marginRight: '10px' }}
+										onClick={() => handleClick(index)}
+										variant='contained'
+										color='primary'
+										startIcon={<AddShoppingCartIcon />}>
+										Wishlist
+									</Button>
+									<Button
+										onClick={() => handleClick2(index)}
+										variant='contained'
+										color='primary'
+										startIcon={<LoyaltyIcon />}>
+										Owned
+									</Button>
 									<h4>Reviews:</h4>
 									{lego.reviews.map((review) => (
 										<div>
@@ -115,23 +136,6 @@ export default AllSets;
 
 
 
-                //     <Card>
-                //     <CardHeader 
-                //         title={lego.name} 
-                //         subheader={lego.piece_count}
-                //     />
-                //     <CardMedia
-                //         style={{ height: 0, paddingTop: '56.25%'}}
-                //         image={lego.image_url}
-                //         title='lego'
-                //     />
-					
-                // </Card>
-                
-                // {
-				// 					reviews.map((review) => (
-				// 						<p>
-				// 							Reviews: {review.title} - {review.body}
-				// 						</p>
-				// 					));
-				// 				}
+        // <IconButton color='primary' aria-label='add to shopping cart'>
+		// 			<AddShoppingCartIcon />
+		// 		</IconButton>;
