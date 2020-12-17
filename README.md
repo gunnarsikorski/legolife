@@ -5,7 +5,12 @@
 Collecting Legos is a hobby of mine - and I know many others do the same. I buy, I build, I keep them on display, I know all the sites to get after market sets, but I always have a hard time keeping what I have, what I want, and which I'll get next in order. So I decided to make a personal Lego inventory tracker as this app, where a user can see available sets from the database I've curated, find something specific, and save it on a list of their choice, leaving reviews on sets along the way! The database will continue to grow and grow.
 
 ---
-images
+### Home Page
+![legoSiteHome](./images/pic-all.png)
+### Search Page
+![legoSearch](./images/pic-search.png)
+### Owned List
+![legoOwned](./images/pic-owned.png)
 
 
 ---
