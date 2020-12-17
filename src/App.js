@@ -18,7 +18,7 @@ function App() {
 			<Header />
 
 			<main>
-				<Route path='/' exact component={Home} />
+				<Route path='/' exact component={AllSets} />
 				<Route path='/sets' render={() => <AllSets setLegoId={setLegoId} />} />
 				<Route path='/wishlist' component={Wishlist} />
 				<Route
