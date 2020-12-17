@@ -31,14 +31,14 @@ const Wishlist = () => {
         
     return (
 			<>
-                <h1>Wishlist</h1>
-				<Grid container spacing={3}>
+				<h1>Wishlist</h1>
+				<Grid container spacing={3} style={{ backgroundColor: 'black' }}>
 					{JSON.parse(localStorage.getItem('legos')).map((lego, index) => (
 						<Grid item xs={4}>
 							<Card>
 								<div key={index}>
 									<h2>{lego.name}</h2>
-                                    <img src={lego.image_url} alt="lego"/>
+									<img src={lego.image_url} alt='lego' />
 									<button onClick={() => handleClick(index)}>Remove</button>
 								</div>
 							</Card>

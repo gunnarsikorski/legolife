@@ -63,6 +63,7 @@ const AllSets = ({ setLegoId }) => {
 
 	return (
 		<>
+		<h2>All Sets</h2>
 			<Grid container spacing={3} style={{backgroundColor: 'black'}}>
 				{legos.map((lego, index) => (
 					<Grid item xs={4}>
